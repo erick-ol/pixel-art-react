@@ -95,6 +95,9 @@ clearButton.addEventListener('click', clearBoard);
 
 // Função para usuário decidir o tamanho da board
 function changeBoardSize() {
+  if (sizeInput.value < 5) sizeInput.value = 5;
+  if (sizeInput.value > 50) sizeInput.value = 50;
+
   if (sizeInput.value) {
     pixelBoard.innerHTML = '';
     generatePixelBoard(sizeInput.value);
