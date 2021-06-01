@@ -1,6 +1,5 @@
 const colors = document.getElementsByClassName('color');
 const pixelBoard = document.getElementById('pixel-board');
-console.log(pixelBoard);
 
 // Função cor aleatória
 function randomColor() {
@@ -45,3 +44,20 @@ function initializeBlack() {
   colors[0].classList.add('selected');
 }
 initializeBlack();
+
+// Função para remover a classe selected
+function removeSelected() {
+  for (let i = 0; i < colors.length; i += 1) {
+    if (colors[i].classList.contains('selected')) {
+      colors[i].classList.remove('selected');
+    }
+  }
+}
+// Função para clicar e selecionar cor
+function changeSelected(event) {
+  removeSelected();
+  event.target.classList.add('selected');
+}
+for (let i = 0; i < colors.length; i += 1) {
+  colors[i].addEventListener('click', changeSelected);
+}
