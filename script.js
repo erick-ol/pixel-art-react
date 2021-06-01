@@ -1,5 +1,6 @@
 const colors = document.getElementsByClassName('color');
 const pixelBoard = document.getElementById('pixel-board');
+const pixels = document.getElementsByClassName('pixel');
 
 // Função cor aleatória
 function randomColor() {
@@ -60,4 +61,20 @@ function changeSelected(event) {
 }
 for (let i = 0; i < colors.length; i += 1) {
   colors[i].addEventListener('click', changeSelected);
+}
+
+// Função para pintar as células
+function selectedColor() {
+  for (let i = 0; i < colors.length; i += 1) {
+    if (colors[i].classList.contains('selected')) {
+      return colors[i].style.backgroundColor;
+    }
+  }
+}
+function changePixelColor(event) {
+  const ev = event;
+  ev.target.style.backgroundColor = selectedColor();
+}
+for (let i = 0; i < pixels.length; i += 1) {
+  pixels[i].addEventListener('click', changePixelColor);
 }
