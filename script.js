@@ -1,6 +1,7 @@
 const colors = document.getElementsByClassName('color');
 const pixelBoard = document.getElementById('pixel-board');
-console.log(pixelBoard)
+console.log(pixelBoard);
+
 // Função cor aleatória
 function randomColor() {
   const colorR = Math.ceil(Math.random() * 255);
@@ -23,18 +24,24 @@ setColors();
 // Função para gerar colunas e linhas da tabela
 // Função que gera células
 function generateCell(size, row) {
-  for (let i = 0; i < size; i += 1 ) {
-    let cell = document.createElement('td');
+  for (let i = 0; i < size; i += 1) {
+    const cell = document.createElement('td');
     row.appendChild(cell);
     cell.classList = 'pixel';
   }
 }
 // Função que gera linhas
 function generatePixelBoard(size) {
-  for (let i = 0; i < size; i += 1 ) {
-    let row = document.createElement('tr');
+  for (let i = 0; i < size; i += 1) {
+    const row = document.createElement('tr');
     pixelBoard.appendChild(row);
     generateCell(size, row);
   }
 }
 generatePixelBoard(5);
+
+// Iniciar a página com a cor preta selecionada
+function initializeBlack() {
+  colors[0].classList.add('selected');
+}
+initializeBlack();
