@@ -24,7 +24,7 @@ h1 {
 
 #pixel-board {
   border-collapse: collapse;
-  margin: 0 auto;
+  margin: 0 auto 60px;
 }
 
 .pixel {
@@ -34,7 +34,16 @@ h1 {
   background-color: white;
 }
 
-#clear-board {
+#buttons {
   display: table;
   margin: 0 auto 30px;
+}
+
+#clear-board {
+  display: inline-block;
+}
+
+#board-size {
+  margin-left: 30px;
+  width: 50px;
 }

@@ -2,6 +2,8 @@ const colors = document.getElementsByClassName('color');
 const pixelBoard = document.getElementById('pixel-board');
 const pixels = document.getElementsByClassName('pixel');
 const clearButton = document.getElementById('clear-board');
+const changeSizeBtn = document.getElementById('generate-board');
+const sizeInput = document.getElementById('board-size');
 
 // Função cor aleatória
 function randomColor() {
@@ -76,9 +78,12 @@ function changePixelColor(event) {
   const ev = event;
   ev.target.style.backgroundColor = selectedColor();
 }
-for (let i = 0; i < pixels.length; i += 1) {
-  pixels[i].addEventListener('click', changePixelColor);
+function changePixelColorListener() {
+  for (let i = 0; i < pixels.length; i += 1) {
+    pixels[i].addEventListener('click', changePixelColor);
+  }
 }
+changePixelColorListener();
 
 // Função para limpar quadro
 function clearBoard() {
@@ -87,3 +92,16 @@ function clearBoard() {
   }
 }
 clearButton.addEventListener('click', clearBoard);
+
+// Função para usuário decidir o tamanho da board
+function changeBoardSize() {
+  if (sizeInput.value) {
+    pixelBoard.innerHTML = '';
+    generatePixelBoard(sizeInput.value);
+    changePixelColorListener();
+  } else {
+    alert('Board inválido!');
+    return false;
+  }
+}
+changeSizeBtn.addEventListener('click', changeBoardSize);
