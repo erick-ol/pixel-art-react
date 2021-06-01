@@ -1,6 +1,7 @@
 const colors = document.getElementsByClassName('color');
 const pixelBoard = document.getElementById('pixel-board');
 const pixels = document.getElementsByClassName('pixel');
+const clearButton = document.getElementById('clear-board');
 
 // Função cor aleatória
 function randomColor() {
@@ -78,3 +79,11 @@ function changePixelColor(event) {
 for (let i = 0; i < pixels.length; i += 1) {
   pixels[i].addEventListener('click', changePixelColor);
 }
+
+// Função para limpar quadro
+function clearBoard() {
+  for (let i = 0; i < pixels.length; i += 1) {
+    pixels[i].style.backgroundColor = 'white';
+  }
+}
+clearButton.addEventListener('click', clearBoard);
