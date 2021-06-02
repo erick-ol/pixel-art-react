@@ -94,17 +94,18 @@ function clearBoard() {
 clearButton.addEventListener('click', clearBoard);
 
 // Função para usuário decidir o tamanho da board
-function changeBoardSize() {
+function verifyNumbers() {
   if (sizeInput.value < 5) sizeInput.value = 5;
   if (sizeInput.value > 50) sizeInput.value = 50;
-
+}
+function changeBoardSize() {
   if (sizeInput.value) {
+    verifyNumbers();
     pixelBoard.innerHTML = '';
     generatePixelBoard(sizeInput.value);
     changePixelColorListener();
   } else {
     alert('Board inválido!');
-    return false;
   }
 }
 changeSizeBtn.addEventListener('click', changeBoardSize);
