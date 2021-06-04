@@ -9,6 +9,8 @@
 </head>
 <body>
   <h1 id="title">Paleta de Cores</h1>
+  <h2 id="title">Pixel Art Project</h1>
+
   <section id="color-palette">
     <div class="color"></div>
     <div class="color"></div>
@@ -18,11 +20,19 @@
 
   <section id="buttons">
     <button id="clear-board">Limpar</button>
-    <input id="board-size" type="number" min="1">
-    <button id="generate-board">VQV</button>
+    <div id="board-buttons">
+      <input id="board-size" type="number" min="1">
+      <button id="generate-board">VQV</button>
+    </div>
   </section>
 
-  <table id="pixel-board"></table>
+  <div class="table-div">
+    <table id="pixel-board"></table>
+  </div>
+
+  <footer>
+    <p>Made with 	&#128149; by Erick Santos</p>
+  </footer>
 
   <script src="./script.js"></script>
 </body>
