@@ -4,6 +4,8 @@ const pixels = document.getElementsByClassName('pixel');
 const clearButton = document.getElementById('clear-board');
 const changeSizeBtn = document.getElementById('generate-board');
 const sizeInput = document.getElementById('board-size');
+const saveBtn = document.getElementById('save-board');
+const tableDiv = document.getElementsByClassName('table-div')[0];
 
 // Função cor aleatória
 function randomColor() {
@@ -109,3 +111,20 @@ function changeBoardSize() {
   }
 }
 changeSizeBtn.addEventListener('click', changeBoardSize);
+
+// Função para abrir imagem em outra página
+function openImage(canvas) {
+  const dataURL = canvas.toDataURL('image/png');
+  const newWindow = window.open();
+  newWindow.document.write(`<img src="${dataURL}" />`);
+  newWindow.location = '#';
+}
+// Função para salvar print da board
+saveBtn.addEventListener('click', () => {
+  html2canvas(tableDiv).then((canvas) => {
+    const canvasElem = document.getElementsByTagName('canvas')[0];
+    if (canvasElem) canvasElem.remove();
+    document.body.appendChild(canvas);
+    openImage(canvas);
+  });
+});

@@ -69,7 +69,7 @@ h2 {
   margin: 0 auto 30px;
 }
 
-#clear-board {
+#clear-board , #save-board{
   color: transparent;
   display: inline-block;
   width: 30px;
@@ -79,7 +79,15 @@ h2 {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   pointer-events: all;
   cursor: pointer;
+}
+
+#clear-board {
   background: url('./img/002-eraser.svg') no-repeat center white;
+  background-size: 20px;
+}
+
+#save-board {
+  background: url('./img/001-floppy-disk.svg') no-repeat center white;
   background-size: 20px;
 }
 
@@ -112,4 +120,8 @@ h2 {
 
 footer p {
   text-align: center;
+}
+
+canvas {
+  display: none;
 }
